@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue Demo01 - 雙向綁定練習</title>
+    </head>
+    <body>
+        <div id="demo">
+            <div>
+                <p>正常顯示訊息：</p>
+                <p>{{message}}</p>
+            </div>
+            <hr>
+            <div>
+                <p>相反顯示訊息：</p>
+                <p>{{message.split('').reverse().join('')}}</p>
+            </div>
+            <hr>
+            <input v-model="message">
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+        <script>
+            var data = {
+                // data.message的異動會觸發DOM的更新
+                message: 'Hello Vue.js!'
+            };
+
+            var demo = new Vue({
+                el: '#demo',
+                data: data
+            });
+        </script>
+    </body>
+</html>

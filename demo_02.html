@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue Demo02 - 渲染列表</title>
+    </head>
+    <body>
+        <p>學習清單：</p>
+        <div id="app">
+            <ul>
+                <li v-for="todo in lists">
+                    {{ todo.text }}
+                </li>
+            </ul>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    lists: [
+                        {text: 'Learn HTML'},
+                        {text: 'Learn CSS'},
+                        {text: 'Learn PHP'},
+                        {text: 'Learn MySQL'},
+                        {text: 'Learn MongoDB'},
+                        {text: 'Learn Redis'},
+                        {text: 'Learn JavaScript'},
+                        {text: 'Learn Vue.js'},
+                    ]
+                }
+            })
+        </script>
+    </body>
+</html>

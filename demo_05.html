@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue Demo05 - 響應的資料綁定</title>
+    </head>
+    <body>
+        <!-- 使用Model概念顯示資料 -->
+        <div id="demo-1">
+            <div>Hello {{ name }}!</div>
+            <div>{{ message }}</div>
+        </div>
+        <!-- 使用if判定若為true則顯示資訊 -->
+        <div id="demo-2">
+            <p v-if="greeting">Hello!(true)</p>
+            <p v-if="calculate">Hello!(false)</p>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+        <script>
+            var exampleData = {
+              name: 'Vue.js',
+              message: 'Vue.js'
+            };
+
+            var exampleDemo1 = new Vue({
+                el: '#demo-1',
+                data: exampleData
+            });
+
+            var exampleDemo2 = new Vue({
+                el: '#demo-2',
+                data: {
+                    greeting: true,
+                    calculate: false
+                }
+            });
+        </script>
+    </body>
+</html>

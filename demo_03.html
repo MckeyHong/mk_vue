@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue Demo03 - 處理用戶輸入</title>
+    </head>
+    <body>
+        <div id="app">
+            <p>{{ message }}</p>
+            <p>{{ remark }}</p>
+            <button v-on:click="reverseMessage">相反文字</button>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    message: 'Hello Vue.js!',
+                    remark: '處理文字訊息顯示'
+                },
+                methods: {
+                    reverseMessage: function () {
+                        this.message = this.message.split('').reverse().join('');
+                        this.remark = this.remark.split('').reverse().join('');
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

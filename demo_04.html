@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue Demo04 - 綜合</title>
+        <style>
+            #app ul li {
+                margin-bottom: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <!-- 輸入文字並產生選項 -->
+            <input v-model="newDemo" v-on:keyup.enter="addOption" placeholder="輸入文字並按Enter鍵" >
+            <ul>
+                <li v-for="todo in demoList">
+                    <span>{{ todo.text }}</span>
+                    <button v-on:click="removeOption($index)">移除選項</button>
+                </li>
+            </ul>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    newDemo: '',
+                    demoList: [
+                        {text: '訊息Demo1'},
+                        {text: '訊息Demo2'},
+                        {text: '訊息Demo3'}
+                    ]
+                },
+                methods: {
+                    addOption: function () {
+                        var text = this.newDemo.trim();
+                        if (text) {
+                            this.demoList.push({text: text});
+                            this.newDemo = '';
+                        }
+                    },
+                    removeOption: function (index) {
+                        this.demoList.splice(index, 1);
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

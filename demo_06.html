@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue Demo06 - 資料綁定語法</title>
+    </head>
+    <body>
+        <div id="demo1">
+            <h3>1.文字</h3>
+            <div>
+                <p>正常綁定訊息：{{message}}</p>
+            </div>
+            <div>
+                <p>不受輸入框影響：{{* message}}</p>
+            </div>
+            <input v-model="message" placeholder="輸入想要輸入的文字">
+        </div>
+        <hr>
+        <div id="demo2">
+            <h3>2.HTML</h3>
+            <div>{{{ raw_html }}}</div>
+        </div>
+        <hr>
+        <div id="demo3">
+            <h3>3.HTML特性</h3>
+            <div id="item-{{id}}">指定DIV ID：{{id}}</div>
+        </div>
+        <hr>
+        <div id="demo4">
+            <h3>4.Javascript表達式</h3>
+            <div>{{ number + 1 }}</div>
+            <div>{{ ok ? 'YES' : 'NO' }}</div>
+        </div>
+        <hr>
+        <div id="demo5">
+            <h3>5.Filters(過濾)</h3>
+            <div>{{ message | capitalize }}</div>
+        </div>
+        <hr>
+        <div id="demo6">
+            <h3>6.Filters(過濾)</h3>
+            <div>{{ message | capitalize }}</div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+        <script>
+            //文字 - 綁定&不綁定訊息
+            var data1 = {
+                message: 'Hello Vue.js!'
+            };
+            var demo1 = new Vue({
+                el: '#demo1',
+                data: data1
+            });
+
+            //HTML - 輸出原始的HTML內容
+            var data2 = {
+                raw_html: '<div>demo1<br/>demo2</div>'
+            };
+            var demo2 = new Vue({
+                el: '#demo2',
+                data: data2
+            });
+
+            //HTML特性 - 指定div的id值
+            var data3 = {
+                id: 'div_demo3'
+            };
+            var demo3 = new Vue({
+                el: '#demo3',
+                data: data3
+            });
+
+            //Javascript表達式 - number運算&判斷資料是否顯示
+            var data4 = {
+                number: 1,
+                ok: true
+            };
+            var demo4 = new Vue({
+                el: '#demo4',
+                data: data4
+            });
+
+            //Filters(過濾) - 將訊息轉成大寫
+            Vue.filter('capitalize', function (value) {
+                return value.toUpperCase();
+            });
+            var data5 = {
+                message: 'hello vue.js!'
+            };
+            var demo5 = new Vue({
+                el: '#demo5',
+                data: data5
+            });
+
+        </script>
+    </body>
+</html>

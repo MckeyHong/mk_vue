@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue Demo08 - class與style綁定</title>
+    </head>
+    <body>
+        <div id="demo1" class="static" v-bind:class="{ 'class-a': isA, 'class-b': isB }">Demo1</div>
+        <hr>
+        <div id="demo2" v-bind:class="[classA, classB]">Demo2</div>
+        <hr>
+        <div id="demo3" v-bind:style="styleObject">Demo3</div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+        <script>
+            new Vue({
+                el: '#demo1',
+                data: {
+                    isA: true,
+                    isB: false
+                }
+            });
+
+            new Vue({
+                el: '#demo2',
+                data: {
+                    classA: 'class-a',
+                    classB: 'class-b'
+                }
+            });
+
+            new Vue({
+                el: '#demo3',
+                data: {
+                    styleObject: {
+                        color: '#FF0000',
+                        fontSize: '20px'
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

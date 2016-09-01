@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue Demo07 - 計算屬性</title>
+    </head>
+    <body>
+        <div id="demo1">
+            a = {{ a }}, b = {{ b }}
+        </div>
+        <hr>
+        <div id="demo2">
+            {{fullName}}
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+        <script>
+            var vm1 = new Vue({
+                el: '#demo1',
+                data: {
+                    a: 1
+                },
+                computed: {
+                    b: function () {
+                        return this.a + 100;
+                    }
+                }
+            });
+
+            var vm2 = new Vue({
+                el: '#demo2',
+                data: {
+                    firstName: 'Foo',
+                    lastName: 'Bar'
+                },
+                computed: {
+                    fullName: function () {
+                        return this.firstName + ' ' + this.lastName;
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

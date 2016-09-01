@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue Demo09 - 條件渲染</title>
+    </head>
+    <body>
+        <div id="app">
+            <div>
+                <h3 v-if="ok">Yes</h3>
+                <h3 v-else>No</h3>
+            </div>
+            <hr>
+            <div>
+                <template v-if="ok">
+                    <h3>Title</h3>
+                    <p>Paragraph 1</p>
+                    <p>Paragraph 2</p>
+                </template>
+            </div>
+            <hr>
+            <div>
+                <!-- show不支援<template>語法  -->
+                <h3 v-show="ok">Hello!</h3>
+            </div>
+            <hr>
+            <div v-if="Math.random() > 0.5">
+                random > 0.5：Over
+            </div>
+            <div v-else>
+                random > 0.5：Under
+            </div>
+
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    ok: true //設定false則不顯示
+                }
+            });
+        </script>
+    </body>
+</html>

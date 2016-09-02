@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue Demo10 - 列表渲染</title>
+    </head>
+    <body>
+        <ul id="demo1">
+            <li v-for="item in items">
+                {{ item.message }}
+            </li>
+        </ul>
+        <hr>
+        <ul id="demo2">
+            <li v-for="item in items">
+                {{ parentMessage }} - {{ $index }} ： {{ item.message }}
+            </li>
+        </ul>
+        <hr>
+        <ul id="demo3" class="demo">
+            <li v-for="value in demoObject">
+                {{ $key }} : {{ value }}
+            </li>
+        </ul>
+        <hr>
+        <div id="demo4">
+            <span v-for="n in 15">{{ n }} </span>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+        <script>
+            var data = [
+                {message: 'Foo'},
+                {message: 'Bar'},
+                {message: 'Ben'},
+                {message: 'May'}
+            ];
+
+            var example1 = new Vue({
+                el: '#demo1',
+                data: {
+                    items: data
+                }
+            });
+
+            var example2 = new Vue({
+                el: '#demo2',
+                data: {
+                    parentMessage: 'Index',
+                    items: data
+                }
+            });
+
+            new Vue({
+                el: '#demo3',
+                data: {
+                    demoObject: {
+                        FirstName: 'John',
+                        LastName: 'Doe',
+                        Age: 20
+                    }
+                }
+            });
+
+            new Vue({
+                el: '#demo4'
+            });
+        </script>
+    </body>
+</html>

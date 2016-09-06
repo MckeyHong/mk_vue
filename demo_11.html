@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue Demo11 - 方法與事件處理器</title>
+    </head>
+    <body>
+        <div id="demo1">
+            <button v-on:click="showMessage">showMessage</button>
+        </div>
+        <hr>
+        <div id="demo2">
+            <button v-on:click="sayMessage('hi')">Say Hi</button>
+            <button v-on:click="sayMessage('what')">Say What</button>
+        </div>
+        <hr>
+        <div id="demo3">
+            <button v-on:click="eventMessage('hi', $event)">Test</button>
+        </div>
+        <hr>
+        <div id="demo4">
+            <input id="input_txt" v-on:keyup.13="submit" placeholder="輸入文字並按Enter">
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+        <script>
+            var vm = new Vue({
+                el: '#demo1',
+                data: {
+                    name: 'Vue.js'
+                },
+                methods: {
+                    showMessage: function (event) {
+                        alert('Hello ' + this.name + '!');
+                        alert(event.target.tagName);
+                    }
+                }
+            });
+
+            new Vue({
+                el: '#demo2',
+                methods: {
+                    sayMessage: function (msg) {
+                        alert(msg);
+                    }
+                }
+            });
+
+            new Vue({
+                el: '#demo3',
+                methods: {
+                    eventMessage: function (msg, event) {
+                        event.preventDefault();
+                        alert(msg);
+                    }
+                }
+            });
+
+            var vm = new Vue({
+                el: '#demo4',
+                methods: {
+                    submit: function (event) {
+                        alert('Hello ' + document.getElementById('input_txt').value + '!');
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

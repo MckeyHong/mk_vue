@@ -9,3 +9,4 @@
 8. demo_08.html：[class與style綁定](https://github.com/MckeyHong/mk_vue/blob/master/demo_08.html)
 9. demo_09.html：[條件渲染](https://github.com/MckeyHong/mk_vue/blob/master/demo_09.html)
 10. demo_10.html：[列表渲染](https://github.com/MckeyHong/mk_vue/blob/master/demo_10.html)
+11. demo_11.html：[方法與事件處理器](https://github.com/MckeyHong/mk_vue/blob/master/demo_11.html)

@@ -10,3 +10,4 @@
 9. demo_09.html：[條件渲染](https://github.com/MckeyHong/mk_vue/blob/master/demo_09.html)
 10. demo_10.html：[列表渲染](https://github.com/MckeyHong/mk_vue/blob/master/demo_10.html)
 11. demo_11.html：[方法與事件處理器](https://github.com/MckeyHong/mk_vue/blob/master/demo_11.html)
+12. demo_12.html：[表單輸入綁定](https://github.com/MckeyHong/mk_vue/blob/master/demo_12.html)

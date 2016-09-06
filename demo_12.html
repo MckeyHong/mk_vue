@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue Demo12 - 表單輸入綁定</title>
+    </head>
+    <body>
+        <div id="demo1">
+            <h3>#Text</h3>
+            <span>Message is: {{ message }}</span>
+            <br>
+            <input type="text" v-model="message" placeholder="輸入要顯示的文字" >
+        </div>
+        <hr>
+        <div id="demo2">
+            <h3>#Checkbox</h3>
+            <input type="checkbox" id="checkbox" v-model="checked">
+            <label for="checkbox">{{ checked }}</label>
+        </div>
+        <hr>
+        <div id="demo3">
+            <h3>#Checkbox Multiple</h3>
+            <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+            <label for="jack">Jack</label>
+            <input type="checkbox" id="john" value="John" v-model="checkedNames">
+            <label for="john">John</label>
+            <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+            <label for="mike">Mike</label>
+            <input type="checkbox" id="ben" value="Ben" v-model="checkedNames">
+            <label for="ben">Ben</label>
+            <input type="checkbox" id="james" value="James" v-model="checkedNames">
+            <label for="james">James</label>
+            <br /><br />
+            <span style="color:#0000FF">Checked names: {{ checkedNames | json }}</span>
+        </div>
+        <hr>
+        <div id="demo4">
+            <h3>#Radio</h3>
+            <input type="radio" id="one" value="One" v-model="picked">
+            <label for="one">One</label>
+            <br />
+            <input type="radio" id="two" value="Two" v-model="picked">
+            <label for="two">Two</label>
+            <br />
+            <span>Picked: {{ picked }}</span>
+        </div>
+        <hr>
+        <div id="demo5">
+            <h3>#Select</h3>
+            <select v-model="selected">
+                <option value="A" selected>A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+            <span>Selected: {{ selected }}</span>
+        </div>
+        <hr>
+        <div id="demo6">
+            <h3>#Select Multiple</h3>
+            <select v-model="selected" multiple>
+                <option value="A" selected>A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+            <span>Selected: {{ selected | json }}</span>
+        </div>
+        <hr>
+        <div id="demo7">
+            <h3>#Select in v-for</h3>
+            <select v-model="selected">
+                <option v-for="option in options" v-bind:value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+            <span>Selected: {{ selected }}</span>
+        </div>
+        <hr>
+        <div>
+            <h3>#debounce</h3>
+            <div id="demo8">
+                {{ msg }}
+                <br />
+                <input v-model="msg" debounce="500">
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+        <script>
+            // text
+            new Vue({
+                el: '#demo1',
+                data: {
+                    message: ''
+                }
+            });
+
+            // checkbox
+            new Vue({
+                el: '#demo2',
+                data: {
+                    checked: false
+                }
+            });
+
+            // checkbox multiple
+            new Vue({
+                el: '#demo3',
+                data: {
+                    checkedNames: []
+                }
+            });
+
+            //radio
+            new Vue({
+                el: '#demo4',
+                data: {
+                    picked: ''
+                }
+            });
+
+            //select
+            new Vue({
+                el: '#demo5',
+                data: {
+                    selected: null
+                }
+            });
+
+            //select multiple
+            new Vue({
+                el: '#demo6',
+                data: {
+                    selected: []
+                }
+            });
+
+            //select in v-for
+            new Vue({
+                el: '#demo7',
+                data: {
+                    selected: 'A',
+                    options: [
+                        {text: 'One', value: 'A'},
+                        {text: 'Two', value: 'B'},
+                        {text: 'Three', value: 'C'},
+                    ]
+                }
+            });
+
+            //debounce
+            new Vue({
+                el: '#demo8',
+                data: {
+                    msg: '會延時顯示輸入訊息'
+                }
+            });
+        </script>
+    </body>
+</html>
